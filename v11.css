@@ -1,0 +1,18 @@
+/* V11 - image fidelity + stable walking layer. Approved scene geometry is untouched. */
+#mapWindow.map-window{background:#241131;isolation:isolate}
+#mapWindow.map-window::before{content:"";position:absolute;inset:-28px;background:url('assets/approved_map_crisp.webp') center/cover no-repeat;filter:blur(26px) saturate(1.14) brightness(.74);pointer-events:none;z-index:0}
+#mapStage.map-stage{z-index:1}
+#mapStage .map-backdrop,#mapStage .map-walk-backdrop{image-rendering:auto;backface-visibility:hidden}
+#mapStage .map-walk-backdrop{position:absolute;inset:0;width:1536px;height:1024px;z-index:1;opacity:0;object-fit:fill;pointer-events:none;transition:opacity .32s ease-out}
+#mapStage.walk-background-ready .map-walk-backdrop{opacity:1}
+#portalLayer{z-index:4}
+#funki.funki-walker{z-index:9;will-change:left,top;contain:layout style}
+#funki.funki-walker>img{will-change:translate;transform:scaleX(1)!important}
+#funki.funki-walker.walking>img{animation:walk-bob .35s ease-in-out infinite alternate!important}
+@keyframes walk-bob{to{translate:0 -2px}}
+#portalLayer>.portal{isolation:auto}
+#portalLayer>.portal img{image-rendering:auto;backface-visibility:hidden}
+#portalLayer>.portal:hover img,#portalLayer>.portal:focus-visible img,#portalLayer>.portal.near img{filter:brightness(1.27) saturate(1.18) drop-shadow(0 0 19px #ffe3a0);transform:none}
+#portalLayer>.portal.next img{filter:brightness(1.09) saturate(1.12) drop-shadow(0 0 7px #ffe3a0)}
+#portalLayer>.portal img{-webkit-mask-image:radial-gradient(ellipse 75% 74% at 50% 50%,#000 57%,#000e 68%,transparent 92%);mask-image:radial-gradient(ellipse 75% 74% at 50% 50%,#000 57%,#000e 68%,transparent 92%)}
+@media(prefers-reduced-motion:reduce){#mapStage .map-walk-backdrop{transition:none}}

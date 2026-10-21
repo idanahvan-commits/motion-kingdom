@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1b102f"><title>ממלכת התנועה | הזזות, שיקופים וסיבובים</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="v10.css"><link rel="stylesheet" href="v11.css"></head>
+<body><div id="app">
+<section id="world" class="screen world-screen" aria-label="מפת ממלכת התנועה">
+  <header class="world-head" aria-hidden="true"></header>
+  <div id="mapWindow" class="map-window" tabindex="0" aria-label="מפת המתחמים. אפשר ללחוץ על שער או להזיז את מר פונקי בחצים וללחוץ Enter"><div id="mapStage" class="map-stage"><img class="map-backdrop" src="assets/approved_map_hd.webp" alt="ממלכת התנועה: ארמון, מפלים, גשרים ושמונה מתחמים" draggable="false"><img id="mapWalkingBackground" class="map-walk-backdrop" src="assets/kingdom_walk_hd.webp" alt="" aria-hidden="true" draggable="false"><div id="portalLayer"></div><div id="funki" class="funki-walker" aria-hidden="true"><img src="assets/mr_funki.png" alt=""><span class="walker-shadow"></span></div><div id="mapTooltip" class="map-tooltip" hidden></div><button id="beginBtn" class="castle-door" type="button" aria-label="התחילו את המסע מהמתחם המואר" title="התחילו את המסע"><img src="assets/castle_door.png" alt="" draggable="false"></button></div></div>
+  <footer class="world-foot" aria-label="ניווט מהיר בממלכה">
+    <div id="mapPrompt" class="screen-reader">מתחם 1 מואר — מתחילים כאן</div>
+    <div id="gemsBadge" class="gem-counter" aria-live="polite" title="יהלומים שנאספו">💎 <b>0</b> / 8</div>
+    <nav class="world-tools">
+      <button id="termsBtn" aria-label="מילון מושגים" title="מילון מושגים">📖</button>
+      <button id="freeBtn" aria-label="משחק חופשי" title="משחק חופשי">🎮</button>
+      <button id="achieveBtn" aria-label="יהלומים והישגים" title="יהלומים והישגים">🏆</button>
+      <button class="full-button" id="fullScreenBtn" aria-label="מסך מלא" title="מסך מלא">⛶</button>
+    </nav>
+  </footer>
+</section>
+<section id="realm" class="screen realm-screen hidden" aria-label="מתחם למידה"><div class="realm-shell">
+ <header class="realm-top"><button class="back-button" id="realmBack">❮ לממלכה</button><div class="realm-heading"><small id="realmKicker"></small><h1 id="realmName"></h1></div><div class="realm-top-tools"><button id="realmFull" class="square-button" aria-label="מסך מלא">⛶</button><button id="realmTerms" class="square-button" aria-label="פתח מילון">📖</button></div></header>
+ <nav class="room-tabs" id="roomTabs" aria-label="חדרי המתחם"></nav>
+ <div class="realm-content"><div class="scene-column"><div id="immersive" class="immersive-scene"><div class="scene-light-rays"></div><div class="scene-header"><strong id="sceneLabel"></strong><span id="sceneIndicator"></span></div><div class="interaction-surface" id="surface"></div><div id="sceneResult" class="scene-result" aria-live="polite"></div></div><div id="sceneTips" class="scene-tips"></div></div>
+ <aside class="quest-panel"><span class="quest-tag" id="questNumber"></span><div id="questIcon" class="quest-icon">✦</div><h2 id="questTitle"></h2><p class="quest-brief" id="questText"></p><div class="quest-controls" id="questControls"></div><div class="quest-feedback" id="questFeedback" aria-live="polite"></div><div class="quest-actions"><button id="check" class="primary">בדיקה ✦</button><button id="hint" class="secondary">רמז</button><button id="explain" class="secondary">פתרון מוסבר</button></div><div id="discovery" class="discovery hidden"></div></aside></div>
+ <footer class="realm-bottom"><button id="roomPrev" class="secondary">חדר קודם ❯</button><div id="roomProgress" class="little-progress"></div><button id="roomNext" class="primary">לחדר הבא ❮</button></footer>
+ </div></section>
+<section id="extra" class="screen extra-screen hidden"><div class="extra-shell"><header class="realm-top"><button id="extraBack" class="back-button">❮ לממלכה</button><div class="realm-heading"><small id="extraKicker"></small><h1 id="extraTitle"></h1></div><div></div></header><div id="extraBody"></div></div></section>
+<div id="toast" class="toast hidden" role="status"></div></div><script src="app.js"></script></body></html>
