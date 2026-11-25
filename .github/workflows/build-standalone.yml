@@ -1,0 +1,36 @@
+name: Build standalone HTML
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'style.css'
+      - 'v10.css'
+      - 'v11.css'
+      - 'app.js'
+      - 'maabedet_malbanim_interactive.html'
+      - 'assets/**'
+      - 'scripts/build_standalone.py'
+      - '.github/workflows/build-standalone.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build one-file edition
+        run: python3 scripts/build_standalone.py
+      - name: Commit edition to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add mamlechet_hatnua_standalone.html
+          if git diff --cached --quiet; then
+            echo "No changes to standalone edition"
+          else
+            git commit -m "Build standalone HTML edition"
+            git push
+          fi
